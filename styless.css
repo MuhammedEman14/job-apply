@@ -1,0 +1,463 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: #0a0a0a;
+  font-family:sans-serif;
+}
+.centered-jobs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width:800px;
+}
+.container {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-grow: 1;
+  justify-content: center;
+  background:hsl(180, 31%, 95%);
+ 
+  overflow-y: scroll;
+}
+
+.job {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px;
+  color:rgb(241, 235, 235);
+background-color:#ffffff;
+  border:0px solid;
+ width:100%;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+.job:hover{
+  background-color: #e5e4e4;
+}
+
+.job-header {
+  display: flex;
+  align-items: center;
+}
+
+.job-header img {
+  width:70px;
+  height: 70px;
+  margin-right: 10px;
+}
+
+
+.job-info {
+  display: flex;
+  flex-direction: column; 
+}
+
+.job-info2{
+  display: flex;
+  flex-direction: row; 
+ 
+}
+.job-details-row {
+  display: flex;
+  flex-direction: column;
+}
+.job-position {
+  font-weight: bold;
+  color: rgb(15, 14, 14);
+  font-size: 18px;
+  padding-bottom: 5px;
+  margin-right:5px;
+  margin-left: 5px;
+}
+
+.job-company {
+  font-size: 14px;
+  color: #716b6b;
+  margin-bottom: 5px;
+  margin-right:5px;
+  margin-left: 5px;
+}
+.account{
+  font-size: 14px;
+  color: #656c6a;
+  margin-bottom: 5px; 
+  margin-right:5px;
+  margin-left: 5px;
+}
+.new {
+  background: #97e7dd;
+  color: rgb(238, 238, 238);
+  padding: 4px 4px;
+  margin-left: 5px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+
+  border-radius: 10px;
+  font-size: 10px;
+}
+.featured {
+  background: #0a0a0a;
+  color: rgb(238, 238, 238);
+  padding:4px 4px;
+  margin-left: 5px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  font-size: 10px;
+}
+
+.job-contract {
+  font-size: 14px;
+  color: #5d5b5b;
+  margin-bottom: 5px; 
+  margin-right:5px;
+  margin-left: 5px;
+}
+.job-location {
+  font-size: 14px;
+  color: #7d7575;
+  margin-right:5px;
+  margin-left: 5px;
+}
+
+.job-skills {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  margin-left: auto;
+  justify-content: flex-end; 
+}
+
+
+
+.skill {
+  background: #97e7dd;
+  color: rgb(26, 115, 69);
+  padding: 5px 10px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.skill:hover{
+  background-color: #6bc59e;
+}
+
+.navbar {
+  background-color: hsl(159, 69%, 70%); 
+  height: 100px; 
+  display: flex;
+  margin-bottom: 20px;
+  width:1660px;
+  justify-content: flex-end; 
+  align-items: center;
+  padding-right: 20px;
+}
+.delete-job-btn {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.delete-job-btn:hover {
+  background-color: #c0392b;
+}
+
+.skills-box {
+  display: flex;
+  align-items: center;
+  background-color: #f2f2f2;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  width: 100%;
+  justify-content: space-between;
+}
+
+
+.selected-skills {
+  display: flex;
+  flex-wrap: wrap;
+  background-color:rgb(26, 115, 69) ;
+  gap: 5px;
+}
+
+/* Style for individual selected skills */
+.selected-skills .skill {
+  background-color: #4caf50;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 3px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+/* Style for the Clear button */
+.clear-skills {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-left: auto;
+  justify-content: flex-end;
+ 
+}
+
+.clear-skills:hover {
+  background-color: #37c02b;
+}
+
+
+#job-popup {
+  display: none; /* Hide the popup by default */
+  position:fixed;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  margin-left: 400px;
+ margin-top: 50px;
+  width: 50%;
+  height: 50%;
+  background-color: rgb(229, 238, 234); 
+  z-index: 1000; /* Make it appear above other content */
+  overflow: auto; 
+  text-align: center;
+  border-radius: 10px;
+}
+
+.job-details {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 80%;
+}
+
+.add-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  font-size: 36px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.popup-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+
+.close-popup {
+  position: absolute;
+  top: 10px;
+  margin-top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  color: #0f0b0b;
+  z-index: 2;
+}
+.close-popup2 {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}
+.job-form {
+  width: 80%;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.job-form h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.job-form label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.job-form input[type="text"],
+.job-form input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.job-form button[type="submit"] {
+  background-color: #007BFF;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.job-form button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+.job-form-popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+ /* Media query for screens with a viewport width of 500px or less */
+@media (max-width: 500px) {
+  .job {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border: 1px solid #ccc;
+    position: relative;
+    margin-left: 220px;
+    width: 45%;
+  }
+  .delete-job-btn {
+    padding: 3px 6px;
+    font-size: 12px; 
+  }
+  .job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; 
+    margin-bottom: 10px;
+  }
+
+  .job-header img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: #fff;
+    padding: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-left: 10px; 
+    position: relative;
+    z-index: 2;
+  }
+
+  .job-info {
+    text-align: left;
+    margin-top: 10px;
+    width: 100%;
+    position: relative;
+    z-index: 2; 
+  }
+
+  .job-skills {
+    text-align: left;
+    width: 100%;
+    margin-top: 10px;
+    position: relative;
+    z-index: 1;
+    justify-content: left;
+  }
+
+  .job-skills::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -10px; 
+    border-top: 1px solid #ccc; /* Add a horizontal line above job skills */
+    z-index: 2; /* Set the z-index value for the line (2) to place it above the skills */
+  }
+  .skills-box {
+    display: flex;
+    align-items: center;
+    background-color: #f2f2f2;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    width: 45%;
+    justify-content: space-between;
+  }
+  #job-popup {
+    display: none; /* Hide the popup by default */
+    position:fixed;
+    top: 0;
+    left: 0;
+    background-color:rgb(229, 238, 234);;
+    z-index: 1000;
+    overflow: auto;
+    margin: 5% auto;
+    margin-left: 20px;
+   width:90%;
+   height:90%;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  .add-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    font-size: 36px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-left: 20px;
+  }
+  .job-form {
+    width: 80%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    overflow-y: scroll;
+    height: 80vh;
+  }
+}
+
+    
+    

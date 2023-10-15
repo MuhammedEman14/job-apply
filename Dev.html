@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <title>Job Listings</title>
+
+  
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+   <link rel="stylesheet" href="./styless.css"/>
+</head>
+<body>
+ 
+  <div class="container">
+  
+    <div class="centered-jobs">
+      <div class="navbar"></div>
+      <div class="skills-box">
+       <span id="selected-skills"></span>
+        <button id="clear-skills">Clear</button>
+      </div>
+  
+  
+        <div id="job-listings">
+
+    
+        </div>
+    </div>
+  </div>
+  <div id="job-popup" class="Popup">
+  
+
+    <button id="closee-form-btn" class="close-button">Close</button> 
+   
+</div>
+<button id="add-job-btn" class="add-button">+</button>
+<div id="job-form-popup" class="job-form-popup">
+    <div class="job-form">
+        <h2>Add New Job</h2>
+        <form enctype="multipart/form-data">
+          <label for="imageUpload">Company Logo:</label>
+          <input type="file" id="imageUpload" name="imageUpload" accept="image"><br>
+
+          <div id="imagePreview" style="display: none;">
+            <img id="previewImg" src="#" alt="Preview">
+          </div>
+        <label for="company">Company:</label>
+            <input type="text" id="company" name="company" required>
+       
+            <label for="position">Position:</label>
+            <input type="text" id="position" name="position" required>
+            <label for="Role">Role</label>
+            <input type="text" id="Role" name="Role" required>
+            <label for="Contract">Contract</label>
+            <input type="text" id="Contract" name="Contract" required>
+            <label for="Location">Location</label>
+            <input type="text" id="Location" name="Location" required>
+            <label for="PostedAt">Posted At</label>
+            <input type="text" id="PostedAt" name="PostedAt" required>
+            <label for="jobSkills">Job Skills:</label>
+            <div id="jobSkills">
+              <input type="checkbox" name="languages" value="HTML"> HTML
+              <input type="checkbox" name="languages" value="CSS"> CSS
+              <input type="checkbox" name="languages" value="JavaScript"> JavaScript
+              <input type="checkbox" name="languages" value="Ruby"> Ruby
+              <input type="checkbox" name="languages" value="Python"> Python
+            </div>
+
+            <button type="submit" id="submit-job-btn">Add Job</button>
+        </form>
+        <button id="close-form-btn" class="close-button">Close</button>
+    </div>
+</div>
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">MUHAMMED EMAN</a>.
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="Dev.js"></script>
+  </div>
+</body>
+</html>
